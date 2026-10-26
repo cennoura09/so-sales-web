@@ -1,0 +1,13 @@
+# dependências e build
+node_modules/
+.next/
+out/
+
+# ambiente (segredos nunca entram no repositório)
+.env
+.env.local
+.env.*.local
+
+# arquivos gerados
+*.tsbuildinfo
+next-env.d.ts

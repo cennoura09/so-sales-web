@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<script src="./image-slot.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:#0b0a09}
+html{scroll-behavior:smooth}
+body{font-family:"Source Serif 4",Georgia,serif;color:#f3f2f2;-webkit-font-smoothing:antialiased}
+a{color:#f3f2f2;text-underline-offset:3px}
+a:hover{color:#ffd9bf}
+::selection{background:rgba(255,140,60,.35)}
+:focus-visible{outline:2px solid #ffb27a;outline-offset:2px}
+input::placeholder,textarea::placeholder{color:rgba(243,242,242,.6)}
+select option{color:#1a0f08}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0b0a09;overflow-x:clip;">
+<div style="background:{{ bg }};">
+  <header style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;max-width:1240px;margin:0 auto;padding:20px clamp(20px,5vw,64px);">
+    <a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;">
+      <span style="width:40px;height:46px;display:block;flex:none;">
+        <img src="assets/logo-sosales.png" alt="So Sales" style="width:100%;height:100%;object-fit:contain;display:block;">
+      </span>
+      <span style="display:flex;flex-direction:column;line-height:1.1;">
+        <span style="font-weight:600;font-size:19px;letter-spacing:-0.01em;">So Sales</span>
+        <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(243,242,242,.75);">Marketing e Vendas</span>
+      </span>
+    </a>
+    <nav style="display:flex;gap:24px;flex-wrap:wrap;font-size:15px;">
+      <a href="#servicos" style="text-decoration:none;">Serviços</a>
+      <a href="#case" style="text-decoration:none;">Resultados</a>
+      <a href="#faq" style="text-decoration:none;">Dúvidas</a>
+    </nav>
+    <a href="#contato" style="text-decoration:none;font-weight:600;font-size:14px;padding:11px 18px;border-radius:2px;background:#f3f2f2;color:#1a0f08;" style-hover="background:#ffd9bf;color:#1a0f08;">Solicitar diagnóstico</a>
+  </header>
+
+  <section data-screen-label="Hero" style="max-width:1240px;margin:0 auto;padding:clamp(56px,9vw,128px) clamp(20px,5vw,64px) clamp(64px,9vw,120px);">
+    <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:28px;color:#ffd9bf;">Assessoria para clínicas · Belo Horizonte</div>
+    <h1 style="font-weight:600;font-size:clamp(40px,6.4vw,84px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 28px;max-width:13em;text-wrap:balance;">Marketing e vendas da sua clínica, <span style="font-style:italic;font-weight:400;">geridos de ponta a ponta.</span></h1>
+    <p style="font-size:clamp(17px,1.6vw,20px);line-height:1.6;max-width:34em;margin:0 0 40px;color:rgba(243,242,242,.88);text-wrap:pretty;">Organizamos o funil, planejamos as ofertas, roteirizamos os criativos e conduzimos a gestão de todo o processo — com acompanhamento próximo em cada etapa.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#contato" style="text-decoration:none;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;background:#f3f2f2;color:#1a0f08;" style-hover="background:#ffd9bf;color:#1a0f08;">Solicitar diagnóstico</a>
+      <a href="#servicos" style="text-decoration:none;font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;border:1px solid rgba(243,242,242,.45);" style-hover="background:rgba(243,242,242,.1);color:#f3f2f2;">Conhecer os planos</a>
+    </div>
+  </section>
+</div>
+
+  <div style="background:{{ bg }};"><section id="servicos" data-screen-label="Serviços" style="max-width:1240px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px);">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px 64px;margin-bottom:clamp(40px,6vw,64px);align-items:end;">
+      <h2 style="font-weight:600;font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-0.02em;margin:0;text-wrap:balance;">Dois formatos de assessoria, <span style="font-style:italic;font-weight:400;">uma gestão completa.</span></h2>
+      <p style="font-size:17px;line-height:1.6;margin:0;color:rgba(243,242,242,.85);max-width:30em;text-wrap:pretty;">Em ambos, a So Sales assume a condução do processo e permanece ao seu lado com suporte contínuo — da estratégia à análise dos resultados.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;">
+      <sc-for list="{{ plans }}" as="p" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:24px;padding:clamp(28px,3vw,40px);border-radius:4px;background:rgba(11,10,9,.55);border:1px solid rgba(243,242,242,.14);backdrop-filter:blur(6px);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;">
+            <h3 style="font-weight:600;font-size:26px;margin:0;">{{ p.name }}</h3>
+            <span style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#ffb27a;">{{ p.tag }}</span>
+          </div>
+          <p style="font-size:16px;line-height:1.55;margin:0;color:rgba(243,242,242,.82);">{{ p.desc }}</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;flex:1;">
+            <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="5">
+              <li style="display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:16px;line-height:1.45;">
+                <span style="color:#ffb27a;">—</span><span>{{ it }}</span>
+              </li>
+            </sc-for>
+          </ul>
+          <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid rgba(243,242,242,.14);">
+            <div>
+              <div style="font-size:13px;color:rgba(243,242,242,.7);">{{ p.priceLabel }}</div>
+              <div style="font-weight:600;font-size:28px;">{{ p.price }}</div>
+            </div>
+            <a href="#contato" style="text-decoration:none;font-weight:600;font-size:14px;padding:12px 20px;border-radius:2px;background:#f3f2f2;color:#1a0f08;" style-hover="background:#ffd9bf;color:#1a0f08;">Quero este plano</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section></div>
+
+  <div style="background:{{ bg }};"><section id="case" data-screen-label="Case" style="max-width:1240px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,6vw,88px);align-items:center;">
+    <div>
+      <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;color:#ffd9bf;">Case de cliente</div>
+      <h2 style="font-weight:600;font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 24px;text-wrap:balance;">Funil estruturado, time comercial com visibilidade total.</h2>
+      <p style="font-size:17px;line-height:1.6;margin:0 0 36px;color:rgba(243,242,242,.85);max-width:30em;text-wrap:pretty;">Reorganizamos o funil de vendas da clínica e demos ao time comercial clareza sobre cada etapa do processo. O resultado foi uma nova projeção de faturamento anual.</p>
+      <div style="display:flex;align-items:end;gap:20px 32px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:13px;color:rgba(243,242,242,.7);margin-bottom:4px;">Projeção anterior</div>
+          <div style="font-size:clamp(26px,3vw,36px);color:rgba(243,242,242,.75);text-decoration:line-through;text-decoration-thickness:1px;">R$ 900 mil</div>
+        </div>
+        <div style="font-size:28px;color:#ffb27a;padding-bottom:4px;">→</div>
+        <div>
+          <div style="font-size:13px;color:rgba(243,242,242,.7);margin-bottom:4px;">Nova projeção anual</div>
+          <div style="font-weight:600;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-0.02em;">R$ 1,2 mi</div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;aspect-ratio:16/9;width:100%;">
+      <image-slot id="case-video" shape="rounded" radius="4" placeholder="Vídeo do case (em breve)"></image-slot>
+    </div>
+  </section></div>
+
+  <div style="background:{{ bg }};"><section id="faq" data-screen-label="FAQ" style="max-width:1240px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px);display:flex;flex-direction:column;gap:clamp(32px,5vw,56px);">
+    <h2 style="font-weight:600;font-size:clamp(32px,4vw,52px);line-height:1.08;letter-spacing:-0.02em;margin:0;text-wrap:balance;">Perguntas <span style="font-style:italic;font-weight:400;">frequentes.</span></h2>
+    <div style="display:flex;flex-direction:column;width:100%;min-width:0;border-top:1px solid rgba(243,242,242,.18);">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid rgba(243,242,242,.18);">
+          <button onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;background:none;border:0;cursor:pointer;font:inherit;font-weight:600;font-size:19px;text-align:left;color:#f3f2f2;" style-hover="color:#ffd9bf;">
+            <span>{{ f.q }}</span><span style="font-weight:400;font-size:24px;flex:none;">{{ f.icon }}</span>
+          </button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0 0 22px;font-size:16px;line-height:1.6;color:rgba(243,242,242,.85);max-width:60em;">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section></div>
+
+  <div style="background:{{ bg }};"><section id="contato" data-screen-label="Contato" style="max-width:1240px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px) clamp(72px,10vw,140px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,96px);">
+    <div>
+      <h2 style="font-weight:600;font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-0.025em;margin:0 0 20px;text-wrap:balance;">Solicite um diagnóstico <span style="font-style:italic;font-weight:400;">da sua clínica.</span></h2>
+      <p style="font-size:17px;line-height:1.6;max-width:28em;margin:0 0 32px;color:rgba(243,242,242,.85);">Preencha o formulário e nossa equipe entrará em contato para entender o momento da sua clínica e indicar o formato mais adequado.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:17px;">
+        <a href="mailto:suportesosales.br@gmail.com">suportesosales.br@gmail.com</a>
+        <a href="https://instagram.com/so.sales.br" target="_blank">@so.sales.br</a>
+      </div>
+    </div>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="align-self:center;">
+        <div style="font-weight:600;font-size:26px;margin-bottom:8px;">Solicitação recebida.</div>
+        <div style="font-size:16px;color:rgba(243,242,242,.85);margin-bottom:20px;">Obrigado, {{ name }}. Retornaremos em breve.</div>
+        <button onClick="{{ reset }}" style="font:inherit;font-weight:600;font-size:14px;cursor:pointer;padding:10px 18px;border-radius:2px;border:1px solid rgba(243,242,242,.45);background:transparent;color:#f3f2f2;" style-hover="background:rgba(243,242,242,.1);">Enviar nova solicitação</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <form onSubmit="{{ submit }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px;padding:clamp(24px,3vw,36px);border-radius:4px;background:rgba(11,10,9,.55);border:1px solid rgba(243,242,242,.14);">
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(243,242,242,.85);">Nome
+          <input required value="{{ name }}" onChange="{{ onName }}" placeholder="Seu nome" style="font:inherit;font-size:16px;color:#f3f2f2;background:rgba(243,242,242,.06);border:1px solid rgba(243,242,242,.25);border-radius:2px;padding:12px 14px;" style-focus="border-color:#ffb27a;outline:none;">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(243,242,242,.85);">Nome da clínica
+          <input required placeholder="Clínica" style="font:inherit;font-size:16px;color:#f3f2f2;background:rgba(243,242,242,.06);border:1px solid rgba(243,242,242,.25);border-radius:2px;padding:12px 14px;" style-focus="border-color:#ffb27a;outline:none;">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(243,242,242,.85);">WhatsApp
+          <input required type="tel" placeholder="(31) 9 0000-0000" style="font:inherit;font-size:16px;color:#f3f2f2;background:rgba(243,242,242,.06);border:1px solid rgba(243,242,242,.25);border-radius:2px;padding:12px 14px;" style-focus="border-color:#ffb27a;outline:none;">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(243,242,242,.85);">Faturamento mensal
+          <select required style="font:inherit;font-size:16px;color:#f3f2f2;background:rgba(243,242,242,.06);border:1px solid rgba(243,242,242,.25);border-radius:2px;padding:12px 14px;" style-focus="border-color:#ffb27a;outline:none;">
+            <option value="">Selecione</option>
+            <option>Até R$ 20 mil</option>
+            <option>R$ 20 mil – R$ 50 mil</option>
+            <option>R$ 50 mil – R$ 100 mil</option>
+            <option>Acima de R$ 100 mil</option>
+          </select>
+        </label>
+        <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px;font-size:13px;color:rgba(243,242,242,.85);">Principal desafio hoje
+          <textarea rows="3" placeholder="Ex.: poucos agendamentos, leads desqualificados…" style="font:inherit;font-size:16px;color:#f3f2f2;background:rgba(243,242,242,.06);border:1px solid rgba(243,242,242,.25);border-radius:2px;padding:12px 14px;resize:vertical;" style-focus="border-color:#ffb27a;outline:none;"></textarea>
+        </label>
+        <button type="submit" style="grid-column:1 / -1;justify-self:start;font:inherit;font-weight:600;font-size:15px;cursor:pointer;padding:15px 26px;border-radius:2px;border:0;background:#f3f2f2;color:#1a0f08;" style-hover="background:#ffd9bf;" style-active="background:#ffb27a;">Solicitar diagnóstico</button>
+      </form>
+    </sc-if>
+  </section></div>
+
+  <footer style="max-width:1240px;margin:0 auto;padding:32px clamp(20px,5vw,64px) 48px;display:flex;flex-wrap:wrap;gap:16px 32px;font-size:14px;color:rgba(243,242,242,.7);">
+    <span style="margin-right:auto;">© 2026 Assessoria So Sales · Marketing e Vendas</span>
+    <a href="https://instagram.com/so.sales.br" target="_blank" style="color:rgba(243,242,242,.8);text-decoration:none;">Instagram</a>
+    <a href="mailto:suportesosales.br@gmail.com" style="color:rgba(243,242,242,.8);text-decoration:none;">E-mail</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;orange&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#b8460b&quot;,&quot;#c2410c&quot;,&quot;#9a3412&quot;,&quot;#d9580f&quot;],&quot;default&quot;:&quot;#b8460b&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { name: "", sent: false, open: 0 };
+  renderVals() {
+    const orange = this.props.orange ?? "#b8460b";
+    const bg = `linear-gradient(270deg, ${orange} 0%, #4a1c07 35%, #140b06 70%, #0b0a09 100%)`;
+    const base = ["Gestão de tráfego pago", "Estruturação da oferta", "Análise de métricas", "Organização de CRM e funil", "1 roteiro de criativo por semana", "1 reunião semanal de alinhamento"];
+    const faqData = [
+      ["Para quais clínicas a assessoria é indicada?", "Atendemos clínicas de Belo Horizonte que desejam estruturar e escalar seu processo comercial."],
+      ["O investimento em anúncios está incluso?", "Não. O valor da assessoria cobre a gestão e a estratégia. A verba de mídia é investida diretamente pela clínica nas plataformas."],
+      ["Em quanto tempo os resultados aparecem?", "Os primeiros ajustes no funil costumam gerar efeito nas semanas iniciais. Resultados consistentes são construídos ao longo dos primeiros meses de acompanhamento."],
+      ["Como funciona o acompanhamento?", "Realizamos uma reunião semanal de alinhamento e mantemos suporte contínuo durante todo o processo, com análise de métricas e ajustes constantes."],
+      ["Existe fidelidade contratual?", "As condições de contrato são apresentadas no diagnóstico, de acordo com o formato escolhido."]
+    ];
+    return {
+      bg,
+      plans: [
+        { name: "Essencial", tag: "Gestão completa", desc: "Estrutura de aquisição e vendas conduzida pela nossa equipe.", items: base, priceLabel: "Investimento", price: "Sob consulta" },
+        { name: "Completo", tag: "Gestão + orgânico", desc: "Tudo do Essencial, somado à construção da presença orgânica da clínica.", items: ["Tudo do plano Essencial", "Estratégia de perfil orgânico", "2 carrosséis por semana"], priceLabel: "Investimento", price: "Sob consulta" }
+      ],
+      faqs: faqData.map(([q, a], i) => ({
+        q, a, open: this.state.open === i, icon: this.state.open === i ? "−" : "+",
+        toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i }))
+      })),
+      name: this.state.name,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      onName: e => this.setState({ name: e.target.value }),
+      submit: e => { e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false, name: "" })
+    };
+  }
+}
+</script>
+</body>
+</html>
